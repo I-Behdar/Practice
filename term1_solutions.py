@@ -955,3 +955,26 @@ print("................")
 print(site1.login())
 """
 # ..............................
+# homework:
+# practice : ezafe kardan bitcoin hay zir 1 dollar :
+
+# cryptocurrency price:
+
+import requests
+
+# a = str( input("what cryptocurrency whould you like to have the information for? "))
+
+# response = requests.get(f"https://api.coincap.io/v2/assets/{a}")
+
+response = requests.get(f"https://api.coincap.io/v2/assets")
+
+data = response.json()
+
+for item in data['data']:
+    if float(item['priceUsd']) < 1:
+        print(f"{item['id']} = ${item['priceUsd']}")
+
+# print("cryptocurrency:", response.json()["data"]["name"])
+# print("symbol:", response.json()["data"]["symbol"])
+# print("rank:", response.json()["data"]["rank"])
+# print("price USD:" , response.json()["data"]["priceUsd"])

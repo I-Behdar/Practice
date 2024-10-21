@@ -1844,6 +1844,9 @@ import json
 
 # session 12:
 
+# homework:
+# practice : ezafe kardan bitcoin hay zir 1 dollar :
+
 # cryptocurrency price:
 
 # a = str( input("what cryptocurrency whould you like information for? "))
@@ -1859,9 +1862,6 @@ import json
 # print("price USD : " , response.json()["data"]["priceUsd"])
 
 # ...........
-# homework:
-# practice : ezafe kardan bitcoin hay zir 1 dollar :
-
 
 # import pywhatkit
 # now = datetime.datetime.now()
