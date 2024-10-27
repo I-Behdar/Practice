@@ -22,7 +22,7 @@ class Library():
 
         book_query = "+".join(book_name.lower().split())
         
-        url = f"https://www.googleapis.com/books/v1/volumes?q={book_query}&key=AIzaSyCbJIvhkukzqGJkHwoRNAiXQalcfwLXvcw"
+        url = f"https://www.googleapis.com/books/v1/volumes?q={book_query}&key="
 
         response = requests.get(url)
 
@@ -192,6 +192,9 @@ class Subscription:
         self.duration = duration
         self.amount = amount
         self.subscribed_users = {}
+    
+    def subscribe(self):
+        pass
 
 library = Library()
 member = Member()
