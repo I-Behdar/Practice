@@ -795,7 +795,7 @@ class Account:
             password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
             return password_hash
         else:
-                raise ValueError("Invalid password!")
+            raise ValueError("Invalid password!")
 
     def id_validation(self, id):
         result = 0
@@ -955,6 +955,7 @@ print("................")
 print(site1.login())
 """
 # ..............................
+"""
 # homework:
 # practice : ezafe kardan bitcoin hay zir 1 dollar :
 
@@ -978,3 +979,4 @@ for item in data['data']:
 # print("symbol:", response.json()["data"]["symbol"])
 # print("rank:", response.json()["data"]["rank"])
 # print("price USD:" , response.json()["data"]["priceUsd"])
+"""

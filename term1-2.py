@@ -1844,9 +1844,6 @@ import json
 
 # session 12:
 
-# homework:
-# practice : ezafe kardan bitcoin hay zir 1 dollar :
-
 # cryptocurrency price:
 
 # a = str( input("what cryptocurrency whould you like information for? "))
@@ -1862,6 +1859,9 @@ import json
 # print("price USD : " , response.json()["data"]["priceUsd"])
 
 # ...........
+# homework:
+# practice : ezafe kardan bitcoin hay zir 1 dollar :
+
 
 # import pywhatkit
 # now = datetime.datetime.now()
@@ -2033,3 +2033,123 @@ import json
 # .......
 
 # https://www.geeksforgeeks.org/python-programming-language-tutorial/?ref=shm
+
+
+# ..............
+
+# session 13:
+"""
+print("snake game:")
+
+import pygame
+from pygame.locals import *
+import time
+# from playsound import playsound
+import random
+
+pygame.init()
+
+width = 800
+height = 600
+screen = pygame.display.set_mode([width , height])
+
+background = (0, 255 , 255)
+red = (255 ,0 , 0)
+black = (0, 0 ,0)
+white = (255 ,255 ,255)
+color = (205 , 8 , 9)
+screen.fill(background)
+
+
+caption = "snake Game"
+pygame.display.set_caption(caption)
+pygame.display.update()
+
+
+x1 = width/2
+y1 = height/2 
+
+x_change = 0
+y_change = 0
+
+snake_block = 20
+
+x_point = snake_block*random.randint(0 , (int(width-snake_block)/snake_block))
+y_point = snake_block*random.randint(0 , (int(height-snake_block)/snake_block))
+pygame.display.update()
+
+def message():
+    font = pygame.font.SysFont("montserrat" , 41 , bold=True)
+    txt =  font.render("GAME OVER " , True , red)
+    screen.blit(txt , (250 , 200)) 
+    pygame.display.update()
+    time.sleep(3)
+    
+
+
+
+object_list = []
+length_snake = 1
+game_over = False
+
+while not game_over:
+    for event in pygame.event.get():
+        print(event)
+        if event.type == pygame.QUIT:
+            game_over = True
+        if event.type == KEYDOWN:
+            if event.key == K_LEFT:
+                x_change = -snake_block
+                y_change=0
+            elif event.key == K_RIGHT:
+                x_change = snake_block
+                y_change=0
+
+            elif event.key == K_UP:
+                y_change = -snake_block
+                x_change = 0
+            elif event.key == K_DOWN:
+                y_change = snake_block
+                x_change = 0
+            
+
+
+    if(x1<0 or x1>width or y1<0 or y1>height):
+        game_over = True
+
+        
+    x1 = x1 + x_change
+    y1 = y1  + y_change
+    
+    head_snake = [x1 , y1]
+    object_list.append(head_snake)
+    if (len(object_list) > length_snake):
+        del object_list[0]
+        
+    screen.fill(background)
+
+
+    pygame.draw.rect(screen , black , [x1 , y1  , snake_block ,snake_block])
+    pygame.draw.rect(screen , red , [x_point , y_point  ,snake_block,snake_block])
+
+    for i in object_list:
+        pygame.draw.rect(screen , black , [i[0], i[1]  , snake_block ,snake_block])
+
+
+
+    pygame.display.update()
+    
+    time.sleep(0.07)
+
+    if(x1==x_point and y1 == y_point):
+        length_snake +=1        
+        x_point = snake_block*random.randint(0 , (width-snake_block)/snake_block)
+        y_point = snake_block*random.randint(0 , (height-snake_block)/snake_block)
+        
+
+message()
+time.sleep(1)
+pygame.display.update()
+# time.sleep(2)
+pygame.quit()
+"""
